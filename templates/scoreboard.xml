@@ -1,0 +1,23 @@
+<fest:template xmlns:fest="http://fest.mail.ru"
+    context_name="json">
+    <div class="scoreboard">
+    	<div class="scoreboard__title">
+            <h1>Game Without Name</h1>
+        </div>
+        <div class="scoreboard__table__name">
+            <h2>Scoreboard</h2>
+        </div>
+    	
+
+   		<div id="loading"><img src="/images/ajax-loader.gif" alt="Loading..." /></div>
+        <div id="scorelist"></div>
+
+    	 <div class="scoreboard__menu__item">
+            <a href="#main">Back</a>
+        </div>
+        <div id="scoreError"></div>
+        <div id="reload">refresh?</div>
+    </div>
+
+</fest:template>
+

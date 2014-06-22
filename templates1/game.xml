@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	
+	<body>
+	<div class="game">
+		<div class="game__menu">
+	            <a id="back_button" href="#" >Back</a>
+	            <a id="start_button">Start Game</a>
+	            <a id="pause_button">Pause</a>
+	    </div>
+	    <div class="game_canvas">
+			<canvas id="game_field_background" width="600" height="360">
+			</canvas>
+			<canvas id="game_field_ship" width="600" height="360">
+			</canvas>
+			<canvas id="game_field_enemies" width="600" height="360">
+			</canvas>
+		</div>
+		<div class="game_over" id="game_over"> GAME OVER</div>
+	   
+	</div>
+</body>
+</fest:template>

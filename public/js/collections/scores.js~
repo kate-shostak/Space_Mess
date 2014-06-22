@@ -1,0 +1,25 @@
+define([ 'backbone', 'models/score'], function(Backbone, ScoreModel) {
+
+    var ScoresCollection = Backbone.Collection.extend( {
+
+      model : ScoreModel,
+      
+      comparator : function (model) {
+          return -model.get("score");  // сортировка по убыванию параметра score
+      },
+
+      initialize : function () {
+      }
+
+    });
+     
+     var TopPlayers = [{name : 'Player1', score : 111}, {name : 'Player2', score : 222},
+             {name : 'Player3', score : 333}, {name : 'Player4', score : 444},
+             {name : 'Player5', score : 555}, {name : 'Diablo', score : 666},
+             {name : 'LyckyMan', score : 777}, {name : 'Player8', score : 888},
+             {name : 'Player1', score : 999}, {name : 'Player10', score : 1000}
+             ];
+
+    return new ScoresCollection(TopPlayers);
+
+});

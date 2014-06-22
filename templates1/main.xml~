@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+
+<div class="wrap">
+	<div class="wrap__headline">
+		<a>Game Without Name</a> 
+	</div>
+
+    <div class="main">
+        <div class="main__menu">
+            <div class="main__menu__title">
+                <h2>Main Menu</h2>
+            </div>
+            <ul class="main__menu">
+                <li class="main__menu__item">	    
+		    <a href="#scoreboard" class="button">Scoreboard</a>
+                </li>
+                <li class="main__menu__item">
+		    <a href="#game" class="button">Game</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</fest:template>

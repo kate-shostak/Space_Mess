@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="scoreboard">
+        
+        <table class="scoreboard__table">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>           
+            <fest:for iterate="json.Scores" index="i">
+            <tr>
+                <td>
+                    <fest:value>i + 1</fest:value>
+                </td>
+                <td>
+                    <fest:value>json.Scores[i].name</fest:value>
+                </td>
+                <td>
+                    <fest:value>json.Scores[i].score</fest:value>
+                </td>
+            </tr>
+            </fest:for>
+        </table>
+       
+    </div>
+</fest:template>
+

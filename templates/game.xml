@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	<head>
+		<style>
+			canvas {
+			position: absolute;
+			top:20%;
+			left:20%;
+			background: transparent;
+			}
+			#game_field_background {
+			z-index: 0;
+			}
+			#game_field_ship {
+			z-index: 2;
+			}
+			#game_field_enemies {
+			z-index: 1;
+			}
+			.game_over {
+			position: absolute;
+			top:20%;
+			left:20%;
+			color: yellow;
+			font-family: Helvetica, sans-serif;
+			font-size: 30px;
+			cursor: default;
+			display: none;
+			z-index:999;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="game">
+		<ul class="game__menu">
+	        <li class="game__menu__item">
+	            <a id="back_button" href="#" class="back_button"></a>
+	            <a id="start_button">Start Game</a>
+	        </li>
+	    </ul>
+		<!-- FIX_IT -->
+			<canvas id="game_field_background" width="600" height="360">
+			</canvas>
+			<canvas id="game_field_ship" width="600" height="360">
+			</canvas>
+			<canvas id="game_field_enemies" width="600" height="360">
+			</canvas>
+		<div class="game_over" id="game_over"> GAME OVER
+		</div>
+	   
+	</div>
+</body>
+</fest:template>

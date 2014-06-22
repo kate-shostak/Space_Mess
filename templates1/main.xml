@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+
+<div class="wrap">
+	<div class="wrap__headline">
+		<a>Space_Mess</a> 
+	</div>
+
+    <div class="main">
+        <div class="main__menu">
+            
+                <h2>Main Menu</h2>
+           
+
+           
+                <ul class="main__menu">
+    		      <li><a class="main__menu__item" href="#scoreboard">Scoreboard</a></li>
+                  <li><a  class="main__menu__item" href="#game" >Game</a></li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+</fest:template>
