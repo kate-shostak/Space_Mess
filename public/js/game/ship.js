@@ -29,6 +29,13 @@ define([
                 self.move();
                 self.bulletPool.animate();
             });
+
+           $(document).on("stop", function() {
+                self.context.clearRect(self.x, self.y, self.width, self.height);
+                self.x = self.canvas.width/2 - self.width/2;
+                self.y = self.canvas.height - self.height;
+                self.bulletPool = new Pool (self.repository);
+            });
         },
 
         move: function() {

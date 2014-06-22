@@ -56,10 +56,10 @@ define([
         },
         
         hide: function () {
-            this.$el.hide();
-            if(isRunning) {
-                $.event.trigger({
-                        type: "stop"
+            this.$el.hide();        // common screen, game's not running.just hide all the fuck away
+            if(isRunning) {         //if we play but all of a sudden sweep to main 
+                $.event.trigger({   //or whatever, we have to stop the animation and set all
+                        type: "stop"//to default.
                 });
             }
         }

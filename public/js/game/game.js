@@ -24,7 +24,7 @@ define([
     var request;
 
     function animframe() {
-        request = requestAnimFrame(animframe);
+        request = requestAnimFrame(animframe);//wtf?
         $.event.trigger({
                 type: "animate"
             });
@@ -69,8 +69,8 @@ define([
 	var Game = Backbone.View.extend ({
 		initialize: function() {
             this.repository = Repository;
-            this.isSet = false;
-            
+            this.isSet = false;// if the resources are ready or not 
+            this.everyOneIsReady = false;
             for(code in KEY_CODES) {
                 KEY_STATUS[ KEY_CODES[ code] ] = false;
             }
@@ -78,6 +78,10 @@ define([
             $(document).on("stop", function() {
                 isRunning = false;
                 cancelRequestAnimFrame(request);
+                //and set all to default
+                if(!gameIsOver) {
+                    score = 0
+                }
             });
         },
            
@@ -87,9 +91,11 @@ define([
                 console.log
             }
             this.repository.draw();
-            this.backg = new Background(this.repository, this.bgcanvas, this.bgcontext);
-            this.ship =  new Ship(this.repository, this.shipcanvas, this.shipcontext);
-           
+            if (!this.everyOneIsReady) {    //singletone(mine redaction) not to make
+                this.everyOneIsReady = true;//so-much-ships and so on X)
+                this.backg = new Background(this.repository, this.bgcanvas, this.bgcontext);
+                this.ship =  new Ship(this.repository, this.shipcanvas, this.shipcontext);
+            }
         },
 
         init: function() {

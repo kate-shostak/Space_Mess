@@ -44,7 +44,7 @@ define([
         }
     });
 
-    function posts (event) {
+    function posts (event) {// gosh i dont remember whu a needed this as a func :()
         event.preventDefault();
         var data = $(this).serialize();
         var name = $("#nameField").val();
@@ -81,7 +81,9 @@ define([
             });
 
         }
+        score = 0
     }
+
 
     return new View();
     

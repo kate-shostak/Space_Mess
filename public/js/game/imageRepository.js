@@ -29,6 +29,7 @@ define([
 
 		imageLoader: function() {
 			this.numLoad++;
+			console.log(this.numLoad)
 			if(this.numLoad === this.numImages) {
 				this.isloaded = true;
 				$.event.trigger({

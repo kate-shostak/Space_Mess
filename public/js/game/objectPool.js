@@ -10,7 +10,6 @@ define([
         
 		initialize: function (repository) {
             this.maxPoolSize = 30; 
-            
             this.reposit = repository;
             this.init();
             var self  = this;

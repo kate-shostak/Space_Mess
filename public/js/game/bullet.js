@@ -13,6 +13,13 @@ define([
             this.x = 0;
             this.y = 0;
             this.alive = false;
+
+            var self = this;
+            $(document).on("stop", function() {
+                this.speed = 0;
+                console.log("Stop bullet")
+                self.context.clearRect(self.x, self.y, self.width, self.height);
+            });
         },
 
         setBullet: function(x, y, speed) {
@@ -25,6 +32,7 @@ define([
         draw: function() {
             this.context.clearRect(this.x, this.y, this.width, this.height);
             this.y -= this.speed;
+            console.log("fuck u")
             if(this.y <= 0 - this.height) {
                 gameIsOver = true;
                 $.event.trigger({
