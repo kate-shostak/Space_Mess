@@ -21,8 +21,6 @@ define([
             $(document).on("animate", function() {
                 self.animate();
             });
-
-            
         },
 
         drawme: function() {

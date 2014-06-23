@@ -2,9 +2,9 @@ define([
     'backbone',
     'game/imageRepository',
     'game/background',
-    'game/objectPool',
+    'game/shipBulletPool',
     'game/ship',
-    'game/enii'
+    'game/enemyHolder'
 ], function(
     Backbone,
     Repository,
@@ -68,8 +68,8 @@ define([
         clearTimeout;
     }) ();
 
-	var Game = Backbone.View.extend ({
-		initialize: function() {
+    var Game = Backbone.View.extend ({
+        initialize: function() {
             this.repository = Repository;
             this.isSet = false;// if the resources are ready or not 
             this.everyOneIsReady = false;
@@ -103,10 +103,8 @@ define([
             this.isSet = true;
             this.bgcanvas = document.getElementById("game_field_background");
             this.shipcanvas = document.getElementById("game_field_ship");
-           //this.enemycanvas = document.getElementById("game_field_en");
             this.bgcontext = this.bgcanvas.getContext("2d");
             this.shipcontext = this.shipcanvas.getContext("2d");
-            //this.enemycontext = this.enemycanvas.getContext("2d");
             this.bgcontext.fillStyle = "#ffffff";
             this.shipcontext.fillStyle = "#ffffff";//what is it?
         },
@@ -115,8 +113,8 @@ define([
             animframe();//why this works but just calling drowns in the recurtion...            
         },
 
-	});
+    });
 
-	return  Game;// so i can transfer somthing in the constructor.
+    return  Game;// so i can transfer somthing in the constructor.
 
-	});
+    });

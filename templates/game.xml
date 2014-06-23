@@ -46,6 +46,7 @@
 			</canvas>
 			<canvas id="game_field_ship" width="600" height="360">
 			</canvas>
+			<div class="bullets">
 			<canvas id="game_field_enemies" width="600" height="360">
 			</canvas>
 			<canvas id="game_field_en" width="600" height="360">

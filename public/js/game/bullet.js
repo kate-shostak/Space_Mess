@@ -16,28 +16,22 @@ define([
             this.y = 0;
             this.alive = false;
             this.bullType = "bullet";
-            //console.log(this.bulletType);
-
+           
             var self = this;
             $(document).on("stop", function() {
                 this.speed = 0;
-                //console.log("Stop bullet")
                 self.context.clearRect(self.x, self.y, self.width, self.height);
             });
         },
 
         setBullet: function(x, y, speed) {
-            console.log("omg")
             this.x = x;
             this.y = y;
             this.speed = speed;
             this.alive = true;
-            //this.bu = tr;
         },
 
         draw: function() {
-            //this.bu = b;
-            console.log("bullet")
             this.context.clearRect(this.x, this.y, this.width, this.height);
             this.y -= this.speed;
 
@@ -54,7 +48,6 @@ define([
             }
             else {
                 if (this.bullType === "bullet") {
-                    //console.log("Good_bullet_draw");
                     this.context.drawImage(this.repository.images["bullet"], this.x, this.y);
                 }
                 else if (this.bullType === "enemyBullet") {
