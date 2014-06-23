@@ -17,6 +17,9 @@
 			#game_field_enemies {
 			z-index: 1;
 			}
+			#game_field_en {
+			z-index: 3;
+			}
 			.game_over {
 			position: absolute;
 			top:20%;
@@ -44,6 +47,8 @@
 			<canvas id="game_field_ship" width="600" height="360">
 			</canvas>
 			<canvas id="game_field_enemies" width="600" height="360">
+			</canvas>
+			<canvas id="game_field_en" width="600" height="360">
 			</canvas>
 		<div class="game_over" id="game_over"> GAME OVER
 		</div>

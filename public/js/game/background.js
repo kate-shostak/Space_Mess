@@ -13,7 +13,6 @@ define([
             this.speed = 1;
             this.x = 0;
             this.y = 0;
-            //maybe othe way?
             var self = this;
             $(document).on("drawme", function() {
                 self.drawme();

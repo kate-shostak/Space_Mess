@@ -3,13 +3,15 @@ define([
     'game/imageRepository',
     'game/background',
     'game/objectPool',
-    'game/ship'
+    'game/ship',
+    'game/enii'
 ], function(
     Backbone,
     Repository,
     Background,
     Pool,
-    Ship
+    Ship,
+    Enemies
 ){  
     KEY_CODES = {
         32: 'space',
@@ -78,7 +80,6 @@ define([
             $(document).on("stop", function() {
                 isRunning = false;
                 cancelRequestAnimFrame(request);
-                //and set all to default
                 if(!gameIsOver) {//were we playing or just switched to another tab.
                     score = 0    //if we were, so we dont want to miss the resuly, honey!
                 }
@@ -88,13 +89,13 @@ define([
         draw: function() {
             if(!this.isSet) {
                 this.init(); 
-                console.log
             }
             this.repository.draw();
             if (!this.everyOneIsReady) {    //singletone(mine redaction) not to make
                 this.everyOneIsReady = true;//so-much-ships and so on X)
                 this.backg = new Background(this.repository, this.bgcanvas, this.bgcontext);
                 this.ship =  new Ship(this.repository, this.shipcanvas, this.shipcontext);
+                this.enemies = new Enemies(this.repository);
             }
         },
 
@@ -102,9 +103,10 @@ define([
             this.isSet = true;
             this.bgcanvas = document.getElementById("game_field_background");
             this.shipcanvas = document.getElementById("game_field_ship");
-            //check if canvas are supported
+           //this.enemycanvas = document.getElementById("game_field_en");
             this.bgcontext = this.bgcanvas.getContext("2d");
             this.shipcontext = this.shipcanvas.getContext("2d");
+            //this.enemycontext = this.enemycanvas.getContext("2d");
             this.bgcontext.fillStyle = "#ffffff";
             this.shipcontext.fillStyle = "#ffffff";//what is it?
         },

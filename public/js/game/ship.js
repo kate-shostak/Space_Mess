@@ -8,18 +8,25 @@ define([
 	var Ship = Backbone.View.extend ({
         
 		initialize: function(repository, canvas, context) {
-            this.speed = 3;
             this.repository = repository;
-            this.bulletPool = new Pool (this.repository);
-           	this.canvas = canvas;
-            this.context = context;
-          	this.width = this.repository.images["ship"].width;
-          	this.height = this.repository.images["ship"].height;
-          	this.x = this.canvas.width/2 - this.width/2;
-            this.y = this.canvas.height - this.height;
+            this.trew = "bullet";
+            
+            //ALL ABOUT SETTING UP SHIP
+            this.speed = 3;
+           	this.shipCanvas = canvas;
+            this.shipContext = context;
+          	this.shipWidth = this.repository.images["ship"].width;
+          	this.shipHeight = this.repository.images["ship"].height;
+          	this.x = this.shipCanvas.width/2 - this.shipWidth/2;
+            this.y = this.shipCanvas.height - this.shipHeight;
             this.fireRate = 15;
             this.counter = 0;
 
+            //POOLS
+            this.bulletPool = new Pool(this.repository, "bullet", 30);
+
+
+            //TRIGGERS
             var self = this;
             $(document).on("drawme", function() {
                 self.draw();
@@ -28,53 +35,58 @@ define([
            $(document).on("animate", function() {
                 self.move();
                 self.bulletPool.animate();
+                /*$.event.trigger({
+                    type: "me"
+                });*/
             });
 
            $(document).on("stop", function() {
-                self.context.clearRect(self.x, self.y, self.width, self.height);
-                self.x = self.canvas.width/2 - self.width/2;
-                self.y = self.canvas.height - self.height;
-                self.bulletPool = new Pool (self.repository);
+                self.shipContext.clearRect(self.x, self.y, self.width, self.shipHeight);
+                self.x = self.shipCanvas.width/2 - self.shipWidth/2;
+                self.y = self.shipCanvas.height - self.shipHeight;
+                self.bulletPool = new Pool (self.repository,"bullet",30);
             });
         },
 
         move: function() {
             this.counter++;
             if(KEY_STATUS.left || KEY_STATUS.right || KEY_STATUS.down || KEY_STATUS.up) {
-            	this.context.clearRect(this.x, this.y, this.width, this.height);
+            	this.shipContext.clearRect(this.x, this.y, this.shipWidth, this.shipHeight);
             	if(KEY_STATUS.left) {//switch-case
             		this.x -= this.speed;
             		if (this.x <= 0)
             			this.x = 0;
             	} else if(KEY_STATUS.right) {
             		this.x += this.speed;
-            		if (this.x >= this.canvas.width - this.width)
-            			this.x = this.canvas.width - this.width;
+            		if (this.x >= this.shipCanvas.width - this.shipWidth)
+            			this.x = this.shipCanvas.width - this.shipWidth;
             	} else if (KEY_STATUS.up) {
             		this.y -= this.speed;
-            		if (this.y <= this.canvas.height/4*3)
-            			this.y = this.canvas.height/4*3;
+            		if (this.y <= this.shipCanvas.height/4*3)
+            			this.y = this.shipCanvas.height/4*3;
             	} else if (KEY_STATUS.down){
             		this.y += this.speed;
-            		if (this.y >= this.canvas.height - this.height)
-            			this.y = this.canvas.height - this.height;
+            		if (this.y >= this.shipCanvas.height - this.shipHeight)
+            			this.y = this.shipCanvas.height - this.shipHeight;
             	}
             	this.draw();
             }
 
             if(KEY_STATUS.space && this.counter >= this.fireRate) {
-                console.log("spacebar");
                 this.fire();
                 this.counter = 0;
             }
         },
 
         draw: function() {
-            this.context.drawImage(this.repository.images["ship"], this.x, this.y);
+            this.shipContext.drawImage(this.repository.images["ship"], this.x, this.y);
         },
 
         fire: function() {
             score += 10;
+            /*console.log("space");
+            console.log(this.bulletPool.meme);*/
+
         	this.bulletPool.getSecondBullet(this.x+6, this.y, 3, this.x+30, this.y, 3);
         }
 

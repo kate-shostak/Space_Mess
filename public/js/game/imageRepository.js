@@ -10,16 +10,13 @@ define([
 		
 		initialize: function() {
 			this.numLoad = 0;
-			this.numImages = 3;
+			this.numImages = 5;
 			this.isloaded = false;
 			this.images["background"] = new Image();
 			this.images["ship"] = new Image();
 			this.images["bullet"] = new Image();
 			this.images["enemy"] = new Image();
 			this.images["enemyBullet"] = new Image();
-			/*images.fetch({context:images}).done(function() {
-				console.log(this.length)
-			});*/
 			this.addOnload();
 		},
 
@@ -34,7 +31,6 @@ define([
 
 		imageLoader: function() {
 			this.numLoad++;
-			console.log(this.numLoad)
 			if(this.numLoad === this.numImages) {
 				this.isloaded = true;
 				$.event.trigger({
