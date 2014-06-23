@@ -48,18 +48,18 @@ define([
         event.preventDefault();
         var data = $(this).serialize();
         var name = $("#nameField").val();
-        var score = $("#scoreField").val();
+        var fieldScore = $("#scoreField").val();
         if (name == '') {
             console.log("Name, mathafaka");
         } else {
             var player = new Score({
                 name: name,
-                score: score
+                score: fieldScore
             });
             Scoreboard.add(player);
             player = {
                 'name': name,
-                'score': score
+                'score': fieldScore
             }
             $.ajax({
                 url: '/scores',
@@ -81,7 +81,7 @@ define([
             });
 
         }
-        score = 0
+        score = 0;
     }
 
 

@@ -79,8 +79,8 @@ define([
                 isRunning = false;
                 cancelRequestAnimFrame(request);
                 //and set all to default
-                if(!gameIsOver) {
-                    score = 0
+                if(!gameIsOver) {//were we playing or just switched to another tab.
+                    score = 0    //if we were, so we dont want to miss the resuly, honey!
                 }
             });
         },

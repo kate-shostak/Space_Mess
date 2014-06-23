@@ -32,7 +32,7 @@ define([
         draw: function() {
             this.context.clearRect(this.x, this.y, this.width, this.height);
             this.y -= this.speed;
-            console.log("fuck u")
+            //console.log("fuck u")
             if(this.y <= 0 - this.height) {
                 gameIsOver = true;
                 $.event.trigger({

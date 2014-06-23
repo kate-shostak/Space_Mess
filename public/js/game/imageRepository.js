@@ -14,7 +14,12 @@ define([
 			this.isloaded = false;
 			this.images["background"] = new Image();
 			this.images["ship"] = new Image();
-			this.images["bullet"] = new Image();	
+			this.images["bullet"] = new Image();
+			this.images["enemy"] = new Image();
+			this.images["enemyBullet"] = new Image();
+			/*images.fetch({context:images}).done(function() {
+				console.log(this.length)
+			});*/
 			this.addOnload();
 		},
 
@@ -47,6 +52,8 @@ define([
 				this.images["background"].src = "images/bg.png";
 				this.images["ship"].src = "images/ship.png";
 				this.images["bullet"].src = "images/bullet.png";
+				this.images["enemy"].src = "images/enemy.png"
+				this.images["enemyBullet"].src = "images/bullet_enemy.png"
 			}
 		}  
 
