@@ -70,6 +70,7 @@ define([
 
     var Game = Backbone.View.extend ({
         initialize: function() {
+            this.enemies = null;
             this.repository = Repository;
             this.isSet = false;// if the resources are ready or not 
             this.everyOneIsReady = false;
@@ -77,9 +78,13 @@ define([
                 KEY_STATUS[ KEY_CODES[ code] ] = false;
             }
             
+            var self = this;
             $(document).on("stop", function() {
                 isRunning = false;
                 cancelRequestAnimFrame(request);
+                self.backg = new Background(Repository, self.bgcanvas, self.bgcontext);
+                self.enemies = new Enemies(Repository);
+                //self.ship =  new Ship(Repository, self.shipcanvas, self.shipcontext);
                 if(!gameIsOver) {//were we playing or just switched to another tab.
                     score = 0    //if we were, so we dont want to miss the resuly, honey!
                 }

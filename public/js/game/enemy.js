@@ -14,15 +14,26 @@ initialize: function(repository, canvas, context) {
         this.height = this.repository.images["enemy"].height;
         this.x = 0;
         this.y = 0;
+        this.speed = 0;
+        this.speedY = 0;
+        this.speedX = 0;
+        this.leftEdge = this.x - 90;
+        this.rightEdge = this.x + 90;
+        this.bottomEdge = this.y + 140;
         this.percentFire = 0.1;
         this.chance = 0;
         this.alive = false;
+        var self = this;
+            $(document).on("stop", function() {
+                self.speed = 0;
+                self.speedY = 0;
+                self.speedX = 0;
+                self.context.clearRect(self.x, self.y, self.width, self.height);
+            });
         
         },
 
-
-        setBullet: function(x, y, speed, tr) {
-            this.tr = tr;
+        setBullet: function(x, y, speed) {
             this.x = x;
             this.y = y;
             this.speed = speed;
@@ -35,6 +46,7 @@ initialize: function(repository, canvas, context) {
         },
 
         draw: function() {
+            console.log(this.speed);
             this.context.clearRect(this.x - 1, this.y, this.width + 1, this.height);
             this.x += this.speedX;
             this.y += this.speedY;

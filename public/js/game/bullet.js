@@ -19,7 +19,7 @@ define([
            
             var self = this;
             $(document).on("stop", function() {
-                this.speed = 0;
+                self.speed = 0;
                 self.context.clearRect(self.x, self.y, self.width, self.height);
             });
         },

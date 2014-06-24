@@ -29,6 +29,7 @@ define([
             //TRIGGERS
             var self = this;
             $(document).on("drawme", function() {
+                self.shipContext.clearRect(self.x, self.y, self.width, self.shipHeight);
                 self.draw();
             });
 
