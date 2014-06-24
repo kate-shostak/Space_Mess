@@ -34,6 +34,8 @@
 		</style>
 	</head>
 	<body>
+		<div id="game_loading"><img src="/images/ajax-loader.gif" alt="Loading..." /></div>
+
 	<div class="game">
 		<ul class="game__menu">
 	        <li class="game__menu__item">

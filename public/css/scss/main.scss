@@ -1,0 +1,88 @@
+$main-color: #fff;
+$font: 100% Georgia, Arial, Helvetica, sans-serif;
+$menu_items_color: White;
+$menu_display: block;
+
+
+.main{
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	margin-top: -225px;
+	margin-left: -100px; 
+	text-align: center;
+	color: Black;
+	font: 100% Georgia, Arial, Helvetica, sans-serif;
+
+}
+
+.main{
+
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	margin-top: -225px;
+	margin-left: -100px; 
+	text-align: center;
+	color: Black;
+	font: $font;
+
+}
+.game{
+	background-image:url(fon.jpg);	
+   	background-repeat: no-repeat;
+	height:750px;
+	border: 2px solid #000;
+}
+
+.game_field_ship {
+	position: absolute;
+	top:20%;
+	left: 20%;
+	background: transparent;
+	width:600px;
+	height: 360px;
+	z-index: 0;
+}
+
+.game__menu__item a{
+	color: $menu_items_color; 
+	text-decoration: none; 
+	width: 48px;
+	height: 48px;
+	display: $menu_display;
+	border: none;
+}
+.main__menu{
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+.main__menu__item a{
+	color: $menu_items_color; 
+	text-decoration: none; 
+	width: 150px;
+	height: 30px;
+	display: $menu_display;
+	border: none;
+}
+.wrap {
+	height: 100%; 
+	margin: 0px;
+	height: auto; 
+	min-height: 100%;
+
+}
+.wrap__headline {
+	width: 100%;
+	color: #eaeaea;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+	border-bottom: 3px solid #ccc;
+	background: #000 url();
+	font: $font;
+}
+
+
+@import "button";

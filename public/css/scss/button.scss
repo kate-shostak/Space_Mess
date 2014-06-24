@@ -1,0 +1,23 @@
+a.button {
+  color: $main-color; 
+  text-decoration: none; 
+  user-select: none; 
+  background: rgb(212,75,56); 
+  padding: .7em 1.5em; 
+  text-align:center;
+} 
+a.button:hover { background: rgb(232,95,76); } 
+a.button:active { background: rgb(152,15,0); } 
+
+a.back_button {
+
+  color: $main-color; 
+  text-decoration: none; 
+  user-select: none; 
+  background: url(back_button.png); 
+  text-align:cmain__menu__itemsenter;
+  width: 48px;
+  height: 48px;
+} 
+a.back_button:hover { background: url(back_button_hover.png); } 
+a.back_button:active { background: url(back_button_hover.png); } 

@@ -13,7 +13,9 @@
     "grunt": "^0.4.4",
     "grunt-contrib-concat": "^0.4.0",
     "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-uglify": "^0.5.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.4.17",
     "grunt-fest": "^0.1.5"

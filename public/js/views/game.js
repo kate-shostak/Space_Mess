@@ -32,6 +32,10 @@ define([
                 isRunning = true;
             });
 
+            $(document).on("drawme", function() {
+                $("#game_loading").hide();
+            });
+
             $(document).on("stop", function() {
                 if(gameIsOver) {
                     self.gameOver.show(score);
